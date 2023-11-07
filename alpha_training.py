@@ -123,13 +123,14 @@ def train(m):
     model = tf.keras.models.load_model(m)
     print("Using model:", m)
     trainx, trainy = read("alphax", "alphay")
-    model.fit(trainx, trainy, epochs=100)
+    print("fitting", m)
+    model.fit(trainx, trainy, epochs=10)
     model.save(m)
     print("Saved as:", m)
 
 
 if __name__ == "__main__":
-    # model = "scratch_one"
-    model = "alpha_one_alpha"
+    model = "scratch_one"
+    # model = "alpha_one_alpha"
     # main()
     train(model)

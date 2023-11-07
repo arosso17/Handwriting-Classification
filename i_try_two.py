@@ -4,7 +4,7 @@ import pygame as pg
 
 #3: 80
 
-new_model = tf.keras.models.load_model("num_read_model_3")
+new_model = tf.keras.models.load_model("num_read_one")
 
 pg.init()
 height = 560

@@ -106,14 +106,14 @@ def main(m):
                     train(board, buttons[event.key], new_model)
                     datax.append(board)
                     datay.append(buttons[event.key])
-                    save(datax, datay)
+                    # save(datax, datay)
                     datax = []
                     datay = []
                 if event.key == pg.K_PERIOD:
                     new_model.save(m)
                     print("Saved as:", m)
                 if event.key == pg.K_SPACE:
-                    prediction = new_model.predict([board])
+                    prediction = new_model.predict(np.array([board]))
                     print(letters[np.argmax(prediction[0])], int(np.max(prediction[0]) * 100))
                 if event.key == pg.K_COMMA:
                     board = [[0 for _ in range(56)] for _ in range(56)]
@@ -127,6 +127,6 @@ def main(m):
 
 
 if __name__ == "__main__":
-    model = "scratch_one"  # missed jor
+    model = "alpha_one"  # missed jor
     # model = "alpha_one_alpha"  # missed jklrsuz
     main(model)

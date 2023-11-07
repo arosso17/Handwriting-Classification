@@ -4,7 +4,7 @@ import pygame as pg
 
 #
 
-new_model = tf.keras.models.load_model("num_read_model_3")
+new_model = tf.keras.models.load_model("num_read_one")
 
 pg.init()
 width = 840
@@ -20,16 +20,16 @@ run = True
 while run:
     if pressed:
         pos = pg.mouse.get_pos()
-        txp = pos[0] // (width / 28)
-        typ = pos[1] // (height / 28)
+        txp = int(pos[0] // (width / 28))
+        typ = int(pos[1] // (height / 28))
         if txp != xp or typ != yp:
             xp = txp
             yp = typ
             board[yp][xp] = 1
     if l_pressed:
         pos = pg.mouse.get_pos()
-        txp = pos[0] // (width / 28)
-        typ = pos[1] // (height / 28)
+        txp = int(pos[0] // (width / 28))
+        typ = int(pos[1] // (height / 28))
         if txp != xp or typ != yp:
             xp = txp
             yp = typ
@@ -41,14 +41,14 @@ while run:
         if event.type == pg.MOUSEBUTTONDOWN:
             if event.button == 1:
                 pos = pg.mouse.get_pos()
-                xp = pos[0] // (width / 28)
-                yp = pos[1] // (height / 28)
+                xp = int(pos[0] // (width / 28))
+                yp = int(pos[1] // (height / 28))
                 board[yp][xp] = 1
                 pressed = True
             if event.button == 3:
                 pos = pg.mouse.get_pos()
-                xp = pos[0] // (width / 28)
-                yp = pos[1] // (height / 28)
+                xp = int(pos[0] // (width / 28))
+                yp = int(pos[1] // (height / 28))
                 board[yp][xp] = 0
                 l_pressed = True
         if event.type == pg.MOUSEBUTTONUP:
